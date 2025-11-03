@@ -1,7 +1,10 @@
 body {
-  background-color: #f8f9fa;
-  color: #333;
   scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fafafa;
 }
 header {
   background: linear-gradient(90deg, #0d6efd, #0dcaf0);
@@ -12,6 +15,53 @@ header {
 header h1 {
   font-size: 2.5rem;
   font-weight: bold;
+}
+h1, h2, h3, .section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #0d6efd;
+  letter-spacing: 0.5px;
+}
+/* Navbar */
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* Section titles */
+.section-title {
+  border-left: 4px solid #0d6efd;
+  padding-left: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+p, li, span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* Buttons */
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 25px;
+}
+
+/* Footer */
+footer {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+h1, h2, h3 {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+h1:hover, h2:hover, h3:hover {
+  color: #00bcd4;
+  transform: translateY(-3px);
 }
 section {
   padding: 60px 15px;
