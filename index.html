@@ -193,75 +193,76 @@
       </ul>
     </section>
 
-      <!-- Proyek -->
+    <!-- Proyek -->
 <section id="proyek" class="container py-5">
   <h2 class="section-title d-flex align-items-center gap-2 mb-4">
     <i class="bi bi-code-slash text-danger"></i>
     Proyek
   </h2>
 
-  <div class="project-slider d-flex gap-3">
+  <div id="projectSlider" class="project-slider d-flex gap-3">
 
-    <!-- Proyek 1 -->
+    <!-- Card 1 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-clock-history fs-3 text-primary"></i>
         <span class="fw-semibold">Digital Clock Concept</span>
       </div>
-      <a href="https://digital-clock-omega-liart.vercel.app/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
-    <!-- Proyek 2 -->
+    <!-- Card 2 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-cloud-sun-fill fs-3 text-warning"></i>
         <span class="fw-semibold">Perkiraan Cuaca</span>
       </div>
-      <a href="https://cuaca-liard.vercel.app/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
-    <!-- Proyek 3 -->
+    <!-- Card 3 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-list-check fs-3 text-success"></i>
         <span class="fw-semibold">List Pencatatan</span>
       </div>
-      <a href="https://dicky-listbelanja.vercel.app/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
-    <!-- Proyek 4 -->
+    <!-- Card 4 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-box-seam fs-3 text-danger"></i>
         <span class="fw-semibold">Sistem Inventory</span>
       </div>
-      <a href="https://dickyoktv.my.id/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
-    <!-- Proyek 5 -->
+    <!-- Card 5 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-clipboard-check fs-3 text-info"></i>
         <span class="fw-semibold">Absen</span>
       </div>
-      <a href="https://absen-2.vercel.app/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
-    <!-- Proyek 6 -->
+    <!-- Card 6 -->
     <div class="project-card card p-3 shadow-sm">
       <div class="d-flex align-items-center gap-3 mb-2">
         <i class="bi bi-person-workspace fs-3 text-info"></i>
         <span class="fw-semibold">Website Magang</span>
       </div>
-      <a href="https://magang.page.gd/" target="_blank" 
-         class="btn btn-outline-primary btn-sm w-100">Lihat</a>
+      <a href="#" class="btn btn-outline-primary btn-sm w-100">Lihat</a>
     </div>
 
+  </div>
+
+  <!-- Bullet Indicator -->
+  <div class="slider-bullets d-flex justify-content-center mt-3 gap-2">
+    <div class="bullet active"></div>
+    <div class="bullet"></div>
+    <div class="bullet"></div>
   </div>
 </section>
 
@@ -270,6 +271,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: 5px;
+    scroll-behavior: smooth;
   }
 
   .project-slider::-webkit-scrollbar {
@@ -282,24 +284,57 @@
   }
 
   .project-card {
-    min-width: 32%; /* Menampilkan 3 card sekaligus */
+    min-width: 32%;
     scroll-snap-align: start;
   }
 
-  /* Tablet */
   @media (max-width: 992px) {
     .project-card {
-      min-width: 45%; /* 2 card terlihat */
+      min-width: 45%;
     }
   }
 
-  /* HP */
   @media (max-width: 576px) {
     .project-card {
-      min-width: 80%; /* 1 card terlihat */
+      min-width: 80%;
     }
   }
+
+  /* Bullet style */
+  .bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    transition: 0.3s;
+  }
+
+  .bullet.active {
+    background: #007bff;
+    width: 20px;
+    border-radius: 10px;
+  }
 </style>
+
+<script>
+  const slider = document.getElementById("projectSlider");
+  const bullets = document.querySelectorAll(".bullet");
+
+  slider.addEventListener("scroll", () => {
+    const scrollLeft = slider.scrollLeft;
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+    const position = scrollLeft / maxScroll;
+
+    let index = 0;
+    if (position > 0.66) index = 2;
+    else if (position > 0.33) index = 1;
+    else index = 0;
+
+    bullets.forEach(b => b.classList.remove("active"));
+    bullets[index].classList.add("active");
+  });
+</script>
 
     <!-- Sertifikat -->
     <section id="sertifikat" class="container">
